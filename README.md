@@ -1,7 +1,15 @@
 # WebStack-Laravel
+更新:
+加入了网址排序功能,修改或者添加网址时,最后一项排序,默认0,数字越大越靠前
+
+安装结束后，需要在数据库 sites 表增加 字段 order 类型 int
+
+
+
+
 更新：
 加入了搜索框、懒加载和一些其他完善
-demo: http://1.best
+demo:www.open356.com
 
 以下为原文档：
 
