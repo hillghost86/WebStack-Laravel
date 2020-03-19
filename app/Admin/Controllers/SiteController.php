@@ -85,7 +85,7 @@ class SiteController extends Controller
         $grid->thumb('图标')->gallery(['width' => 25, 'height' => 25]);
         $grid->describe('描述')->limit(40);
         $grid->url('地址');
-
+        $grid->order('排序');
         $grid->filter(function ($filter) {
             $filter->disableIdFilter();
 
@@ -103,6 +103,8 @@ class SiteController extends Controller
     /**
      * Make a show builder.
      *
+     * 后台查看网站,增加排序功能
+     * 
      * @param mixed $id
      * @return Show
      */
@@ -116,6 +118,7 @@ class SiteController extends Controller
         $show->thumb('图标');
         $show->describe('Describe');
         $show->url('Url');
+        $show->order('排序');
         $show->created_at('Created at');
         $show->updated_at('Updated at');
 
@@ -143,8 +146,13 @@ class SiteController extends Controller
         $form->text('describe', '描述')
             ->attribute('autocomplete', 'off')
             ->rules('required|max:300');
+
         $form->url('url', '地址')
             ->attribute('autocomplete', 'off')
+            ->rules('required|max:250');
+        
+        $form->text('order', '排序')
+            ->attribute('autocomplete', 'on')
             ->rules('required|max:250');
 
         $form->footer(function ($footer) {
